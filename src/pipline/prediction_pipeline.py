@@ -9,10 +9,10 @@ from src.utils.main_utils import load_object
 from dotenv import load_dotenv
 load_dotenv()
 import os
-
-MODEL_ENV = os.getenv("MODEL_ENV")
-if MODEL_ENV not in ["aws", "local"]:
-    raise ValueError("Invalid model environment, please set MODEL_ENV in .env file to either 'aws' or 'local'")
+MODEL_ENV = "aws"
+# MODEL_ENV = os.getenv("MODEL_ENV")
+# if MODEL_ENV not in ["aws", "local"]:
+#     raise ValueError("Invalid model environment, please set MODEL_ENV in .env file to either 'aws' or 'local'")
 print(MODEL_ENV)
 class VehicleData:
     def __init__(self,
