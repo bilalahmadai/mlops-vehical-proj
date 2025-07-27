@@ -129,40 +129,40 @@ class TrainPipeline:
         This method of TrainPipeline class is responsible for running complete pipeline
         """
         try:
-            # data_ingestion_artifact = self.start_data_ingestion()
-            # print("\33[92m Data Ingestion Artifact: \33[0m", data_ingestion_artifact)
-            # data_validation_artifact = self.start_data_validation(data_ingestion_artifact=data_ingestion_artifact)
-            # print("\33[92m Data Validation Artifact: \33[0m", data_validation_artifact)
-            # data_transformation_artifact = self.start_data_transformation(
-            #     data_ingestion_artifact=data_ingestion_artifact, data_validation_artifact=data_validation_artifact)
-            # print("\33[92m Data Transformation Artifact: \33[0m", data_transformation_artifact)
-            # model_trainer_artifact = self.start_model_trainer(data_transformation_artifact=data_transformation_artifact)
-            # print("\33[92m Model Trainer Artifact: \33[0m", model_trainer_artifact)
+            data_ingestion_artifact = self.start_data_ingestion()
+            print("\33[92m Data Ingestion Artifact: \33[0m", data_ingestion_artifact)
+            data_validation_artifact = self.start_data_validation(data_ingestion_artifact=data_ingestion_artifact)
+            print("\33[92m Data Validation Artifact: \33[0m", data_validation_artifact)
+            data_transformation_artifact = self.start_data_transformation(
+                data_ingestion_artifact=data_ingestion_artifact, data_validation_artifact=data_validation_artifact)
+            print("\33[92m Data Transformation Artifact: \33[0m", data_transformation_artifact)
+            model_trainer_artifact = self.start_model_trainer(data_transformation_artifact=data_transformation_artifact)
+            print("\33[92m Model Trainer Artifact: \33[0m", model_trainer_artifact)
             
-            data_ingestion_artifact =  DataIngestionArtifact(
-                trained_file_path='artifact\\07_26_2025_17_06_46\\data_ingestion\\ingested\\train.csv',
-                test_file_path='artifact\\07_26_2025_17_06_46\\data_ingestion\\ingested\\test.csv'
-                )
+            # data_ingestion_artifact =  DataIngestionArtifact(
+            #     trained_file_path='artifact\\07_26_2025_17_06_46\\data_ingestion\\ingested\\train.csv',
+            #     test_file_path='artifact\\07_26_2025_17_06_46\\data_ingestion\\ingested\\test.csv'
+            #     )
 
-            data_validation_artifact =   DataValidationArtifact(
-                validation_status=True,
-                message='',
-                validation_report_file_path='artifact\\07_26_2025_17_06_46\\data_validation\\report.yaml'
-                )
+            # data_validation_artifact =   DataValidationArtifact(
+            #     validation_status=True,
+            #     message='',
+            #     validation_report_file_path='artifact\\07_26_2025_17_06_46\\data_validation\\report.yaml'
+            #     )
 
-            data_transformation_artifact =  DataTransformationArtifact(
-                transformed_object_file_path='artifact\\07_26_2025_17_06_46\\data_transformation\\transformed_object\\preprocessing.pkl',
-                transformed_train_file_path='artifact\\07_26_2025_17_06_46\\data_transformation\\transformed\\train.npy',
-                transformed_test_file_path='artifact\\07_26_2025_17_06_46\\data_transformation\\transformed\\test.npy'
-                )
-            model_trainer_artifact =   ModelTrainerArtifact(
-                trained_model_file_path='artifact\\07_26_2025_17_06_46\\model_trainer\\trained_model\\model.pkl',
-                metric_artifact=ClassificationMetricArtifact(
-                    f1_score=0.9309005767803096,
-                    precision_score=0.8813137798202338,
-                    recall_score=0.9864000121023252
-                    )
-                )
+            # data_transformation_artifact =  DataTransformationArtifact(
+            #     transformed_object_file_path='artifact\\07_26_2025_17_06_46\\data_transformation\\transformed_object\\preprocessing.pkl',
+            #     transformed_train_file_path='artifact\\07_26_2025_17_06_46\\data_transformation\\transformed\\train.npy',
+            #     transformed_test_file_path='artifact\\07_26_2025_17_06_46\\data_transformation\\transformed\\test.npy'
+            #     )
+            # model_trainer_artifact =   ModelTrainerArtifact(
+            #     trained_model_file_path='artifact\\07_26_2025_17_06_46\\model_trainer\\trained_model\\model.pkl',
+            #     metric_artifact=ClassificationMetricArtifact(
+            #         f1_score=0.9309005767803096,
+            #         precision_score=0.8813137798202338,
+            #         recall_score=0.9864000121023252
+            #         )
+            #     )
 
                         
             model_evaluation_artifact = self.start_model_evaluation(data_ingestion_artifact=data_ingestion_artifact,
