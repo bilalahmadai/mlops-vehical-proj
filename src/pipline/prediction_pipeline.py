@@ -6,8 +6,7 @@ from src.logger import logging
 from pandas import DataFrame
 from src.utils.main_utils import load_object
 
-from dotenv import load_dotenv
-load_dotenv()
+from doten/
 import os
 MODEL_ENV = "aws"
 # MODEL_ENV = os.getenv("MODEL_ENV")
